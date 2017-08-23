@@ -5,13 +5,14 @@ $stdout.sync = true
 
 BUILD_DIR = ARGV[0]
 CACHE_DIR = ARGV[1]
-ARCHIVE_NAME = "freetds-0.91"
+ARCHIVE_NAME = "freetds-1.00.54"
+LIB_URL = "ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.54.tar.gz"
 
   puts "-----> FreeTDS building in #{BUILD_DIR}"
 
   puts "-----> Fetching & Extracting FreeTDS"
   puts `mkdir -p #{CACHE_DIR}`
-  puts `curl http://mirrors.ibiblio.org/freetds/stable/freetds-stable.tgz -o - | tar -xz -C #{CACHE_DIR} -f -`
+  puts `curl #{LIB_URL} -o - | tar -xz -C #{CACHE_DIR} -f -`
   puts `ls -al #{CACHE_DIR}`
 
   puts "-----> Configurating FreeTDS"
